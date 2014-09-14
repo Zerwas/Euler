@@ -68,6 +68,8 @@ public class Primelist implements Iterable<Integer>{
 	public Primelist(int max) {
 		maxnumber = max;
 		numbers = new boolean[maxnumber];
+		numbers[0]=true;
+		numbers[1]=true;
 		for (int g = 4; g < maxnumber; g += 2)// erase for 2
 		{
 			numbers[g] = true;
@@ -96,12 +98,12 @@ public class Primelist implements Iterable<Integer>{
 		}
 		@Override
 		public boolean hasNext() {
-			return i==-1;
+			return i!=-1;
 		}
 
 		@Override
 		public Integer next() {
-			int x=i;
+			int x=i++;
 			while (i<maxnumber&&isNotPrime(i)) i++;
 			if (i==maxnumber) i=-1;
 			return x;
