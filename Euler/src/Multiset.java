@@ -5,7 +5,7 @@ import java.util.TreeMap;
 
 /**
  * 
- * @author zerwas
+ * @author zerwas, ben (aber nur zum testen ^^)
  * 
  * @param <T>
  *            sorted MS with elements of type T
