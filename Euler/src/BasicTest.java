@@ -1,12 +1,7 @@
-import java.lang.reflect.Field;
 import org.junit.Test;
 import org.junit.Before;
 import static org.junit.Assert.*;
 
-/**
- * 
- * @author Max Leuthäuser
- */
 public class BasicTest {
 
 	protected Multiset<Integer> a, b;
