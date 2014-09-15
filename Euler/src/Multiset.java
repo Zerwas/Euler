@@ -14,7 +14,15 @@ public class Multiset<T extends Comparable<T>> implements
 		Iterable<Entry<T, Integer>> {
 	SortedMap<T, Integer> elements = new TreeMap<>();
 
-	// TODO add mothods to remove lements
+	// TODO add methods to remove elements
+	/**
+	 * removes all occurrences of elem
+	 * @param elem
+	 * @return
+	 */
+	public int removeAll(T elem){
+		return elements.remove(elem);
+	}
 	/**
 	 * 
 	 * @param b
