@@ -17,12 +17,14 @@ public class Multiset<T extends Comparable<T>> implements
 	// TODO add methods to remove elements
 	/**
 	 * removes all occurrences of elem
+	 * 
 	 * @param elem
 	 * @return
 	 */
-	public int removeAll(T elem){
+	public int removeAll(T elem) {
 		return elements.remove(elem);
 	}
+
 	/**
 	 * 
 	 * @param b
@@ -114,6 +116,26 @@ public class Multiset<T extends Comparable<T>> implements
 		return max;
 	}
 
+	public T getMax() {
+		T max = null;
+		for (T key : elements.keySet()) {
+			if (max == null || max.compareTo(key) > 0)
+				max = key;
+		}
+		return max;
+	}
+
+	/**
+	 * 
+	 * @param elem
+	 * @return number of occurrences of elem 0 if the element does not occur
+	 */
+	public int get(T elem) {
+		if (!elements.containsKey(elem))
+			return 0;
+		return elements.get(elem);
+	}
+
 	/**
 	 * 
 	 * @param elem
@@ -121,6 +143,8 @@ public class Multiset<T extends Comparable<T>> implements
 	 * @param x
 	 */
 	public void add(T elem, Integer x) {
+		if (x <= 0)
+			return;
 		Integer count = elements.get(elem);
 		elements.put(elem, (count == null ? 0 : count) + x);
 	}
