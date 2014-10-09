@@ -30,9 +30,10 @@ public class usefullFunctions {
 		for (int i = n; i > n - k; i--) {
 			upper[n - i] = i;
 		}
+		//TODO fix
 		for (int i = k; i >1; i--) {
 			for (int j = 0; true; j++) {
-				if (upper[j] % i == 0) {
+				if (upper[j] % i == 0) {//devide by gcd?
 					upper[j] /= i;
 					break;
 				}

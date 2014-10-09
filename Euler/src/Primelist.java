@@ -80,6 +80,10 @@ public class Primelist implements Iterable<Integer> {
 	public Iterator<Integer> iterator() {
 		return new PrimeIterator();
 	}
+	
+	public Iterator<Integer> iterator(int start) {
+		return new PrimeIterator(start);
+	}
 
 	/**
 	 * 
@@ -90,6 +94,14 @@ public class Primelist implements Iterable<Integer> {
 		int i = 0;
 
 		public PrimeIterator() {
+			next();
+		}
+		/**
+		 * gives primes bigger than start
+		 * @param start
+		 */
+		public PrimeIterator(int start) {
+			i=start;
 			next();
 		}
 

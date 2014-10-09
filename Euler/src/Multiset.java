@@ -116,6 +116,10 @@ public class Multiset<T extends Comparable<T>> implements
 		return max;
 	}
 
+	/**
+	 * 
+	 * @return highest element
+	 */
 	public T getMax() {
 		T max = null;
 		for (T key : elements.keySet()) {
