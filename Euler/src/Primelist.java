@@ -74,14 +74,14 @@ public class Primelist implements Iterable<Integer> {
 				x = i * 6;
 				numbers.set(j);
 				j += y;
-				//if j is divisible by 3
-				if ((i+2)%3==0)
+				// if j is divisible by 3
+				if ((i + 2) % 3 == 0)
 					j += y;
 				else {
 					numbers.set(j);
 					j += i << 2;
 				}
-				//now j is not divisible by 2 or 3
+				// now j is not divisible by 2 or 3
 				for (; j < maxnumber && j + y > 0; j += x) {
 					numbers.set(j);
 					numbers.set(j + y);
@@ -119,7 +119,7 @@ public class Primelist implements Iterable<Integer> {
 		 * @param start
 		 */
 		public PrimeIterator(int start) {
-			i = start;
+			i = start - 1;
 			next();
 		}
 
@@ -136,7 +136,7 @@ public class Primelist implements Iterable<Integer> {
 			} catch (Exception e) {
 				i = -1;
 			}
-			if (i >= maxnumber)
+			if (i >= maxnumber || x == 0)
 				i = -1;
 			return x;
 		}
