@@ -52,7 +52,7 @@ public class Primelist implements Iterable<Integer> {
 	/**
 	 * 
 	 * @param max
-	 *            array length--> max number represented is max-1
+	 *            primenumbers from on to max including max
 	 */
 	public Primelist(int max) {
 		maxnumber = max;
@@ -62,7 +62,7 @@ public class Primelist implements Iterable<Integer> {
 		{
 			numbers.set(g);
 		}
-		for (int g = 8; g < maxnumber; g += 6)// erase for 3
+		for (int g = 8; g < maxnumber && g > 0; g += 6)// erase for 3
 		{
 			numbers.set(g);
 		}
@@ -74,16 +74,20 @@ public class Primelist implements Iterable<Integer> {
 				x = i * 6;
 				numbers.set(j);
 				j += y;
-				if (numbers.get(j))
+				//if j is divisible by 3
+				if ((i+2)%3==0)
 					j += y;
 				else {
 					numbers.set(j);
 					j += i << 2;
 				}
-				for (; j < maxnumber; j += x) {
+				//now j is not divisible by 2 or 3
+				for (; j < maxnumber && j + y > 0; j += x) {
 					numbers.set(j);
 					numbers.set(j + y);
 				}
+				if (j + y < 0 && j > 0)
+					numbers.set(j);
 			}
 		}
 	}
@@ -127,9 +131,12 @@ public class Primelist implements Iterable<Integer> {
 		@Override
 		public Integer next() {
 			int x = ++i;
-			while (i < maxnumber && numbers.get(i))
-				i++;
-			if (i == maxnumber)
+			try {
+				i = numbers.nextClearBit(i);
+			} catch (Exception e) {
+				i = -1;
+			}
+			if (i >= maxnumber)
 				i = -1;
 			return x;
 		}

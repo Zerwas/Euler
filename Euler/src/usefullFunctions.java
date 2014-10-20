@@ -45,4 +45,7 @@ public class usefullFunctions {
 		}
 		return erg;
 	}
+	static <A> void t(A g){
+		
+	}
 }

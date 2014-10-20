@@ -10,7 +10,7 @@ import org.junit.Test;
 
 
 public class Test_Primelist_Basic {
-	protected Primelist pmin, p100;
+	protected Primelist pmin, p100,p1kk;
 	protected List<Integer> primes;
 
 	/**
@@ -61,6 +61,20 @@ public class Test_Primelist_Basic {
 		for (Integer prime : p100) {
 			assertTrue("Smth wrong with number " + prime, prime == p.next());
 		}
+	}
+	
+	@Test
+	public void testPrimesunder1000000(){
+		p1kk=new Primelist(1000000);
+		int anzit=0,anz=0;
+		for (Integer prime : p1kk) {
+			anzit++;
+		}
+		for (int i = 1; i <=1000000; i++) {
+			if (p1kk.isPrime(i)) anz++;
+		}
+		assertTrue("Iterator found "+anzit+" Primes in class there are "+anz ,anz==anzit);
+		assertTrue("78498 Primes under 1000000 but you found "+anz,anz==78498);
 	}
 
 }
